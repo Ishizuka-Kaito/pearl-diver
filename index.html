@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102e37"><title>真珠潜り ｜ Pearl Diver</title>
+<link rel="stylesheet" href="style.css"></head>
+<body><main><header><div><span lang="en">PEARL DIVER</span><h1>真珠潜り</h1></div><button id="sound" aria-pressed="false">音 OFF</button></header>
+<section id="intro"><p class="lede">次の貝へ泳ぐか、真珠を持って船に戻るか。</p>
+<video controls playsinline preload="metadata" poster="cover.png" src="play.mp4" aria-label="真珠潜りのプレイ映像"></video>
+<div class="entry"><p>海底を10秒間下見して、30秒間の潜水へ。<br>真珠は船に届けると得点になります。</p><button id="start" class="gold" disabled>ゲームを読み込み中…</button></div></section>
+<section id="play" hidden><div id="hud"><div><small id="phase">作戦時間</small><strong id="time"></strong></div><div><small>船の得点</small><strong id="score"></strong></div><div><small>運搬中</small><strong id="cargo"></strong></div><div><small id="air-label">空気</small><strong id="air"></strong></div></div>
+<div class="stage"><canvas id="screen" width="480" height="300" aria-label="真珠潜りの海中画面" tabindex="0"></canvas>
+<div id="overlay" hidden><h2 id="result"></h2><p id="detail"></p><button class="gold" id="again"></button><button id="back">紹介に戻る</button></div></div>
+<p id="message"></p><div class="bar"><div id="keys" aria-label="ゲームの操作"></div><button id="pause">一時停止</button></div></section>
+<details><summary>遊び方と操作</summary><dl>
+<dt>潜水口を選ぶ</dt><dd>下見中に ← → で船を動かし、潜水時間が始まったら ↓ で海に入ります。</dd>
+<dt>真珠を運ぶ</dt><dd>方向キー・WASD または海中タップで泳ぎます。桃色の貝は100点、金色は300点。残り時間のうちに船まで戻って納品します。</dd>
+<dt>空気を使う</dt><dd>Shift長押しでダッシュ。空気の消費が増えます。泡の湧く岩では一度だけ補給できます。</dd>
+<dt>ロープを使う</dt><dd>Bで設置。ロープの近くで再びBを押してつかみ、↑で船へ、↓で設置点へ。ロープ上では空気を使いません。移動中に方向キーを押すと途中で降りられます。</dd></dl></details>
+<footer><a href="https://github.com/Ishizuka-Kaito/pearl-diver">GitHubでソースを見る ↗</a></footer>
+</main><script src="scene.js"></script><script src="ui.js"></script><script src="vendor/brython.js"></script><script type="text/python" src="game.py"></script><script>brython({debug:0})</script></body></html>
